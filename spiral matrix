@@ -1,0 +1,23 @@
+class Solution{
+  public:
+  int dp[10001];
+  int fun(int *a,int n)
+  {
+      if(n==0)return 0;
+     if(dp[n]!=-1)return dp[n];
+      int ans=INT_MIN;
+      for(int i=0;i<n;i++)
+      {
+          
+          int cost=a[i]+fun(a,n-(i+1));
+          ans=max(cost,ans);
+      }
+      return dp[n]=ans;
+  }
+    int cutRod(int price[], int n) {
+        memset(dp,-1,sizeof(dp));
+    return fun(price,n);
+    
+    }
+
+};
